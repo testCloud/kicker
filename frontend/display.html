@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <style>
+      .player_selector {
+        position: absolute;
+        width: 362px;
+        height: 300px;
+        border: 1px solid black;
+      }
+      .player_selector ul {
+        border: 1px solid #000;
+        list-style-type: none;
+        width: 300px;
+        position: relative;
+        display: block;
+        top: 80px;
+        margin: auto;
+        padding: 0;
+      }
+      .player_selector ul li {
+        position: relative;
+        width: 300px;
+        display: block;
+        text-align: center;
+        border: 1px solid #AAA;
+        height: 37px;
+        line-height: 37px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .player_selector ul li.selected {
+        font-size: 42px;
+        line-height: 60px;
+        border: 1px solid #000;
+        height: 60px;
+      }
+      #player_black_defense {
+        top: 0px;
+        left: 0px;
+        border-top: 0px;
+        border-left: 0px;
+        border-bottom: 0px;
+      }
+      #player_black_attack {
+        bottom: 0px;
+        left: 0px;
+        border-bottom: 0px;
+        border-left: 0px;
+      }
+      #player_yellow_attack {
+        top: 0px;
+        right: 0px;
+        border-top: 0px;
+        border-right: 0px;
+        border-bottom: 0px;
+      }
+      #player_yellow_defense {
+        bottom: 0px;
+        right: 0px;
+        border-bottom: 0px;
+        border-right: 0px;
+      }
+      #kicker_background {
+        position: absolute;
+        top: 0px;
+        left: 363px;
+        width: 300px;
+        height: 600px;
+        background-image: url("images/kicker.png");
+        background-position: center;
+        background-repeat: none;
+      }
+    </style>
+    <script>
+      setTimeout(function() { location = location }, 3000);
+    </script>
+  </head>
+  <body>
+    <div id="kicker_background">
+      
+    </div>
+
+    <div id="player_black_defense" class="player_selector">
+      <ul>
+        <li>Hans</li>
+        <li class="selected">Alexander D.</li>
+        <li>Fabien</li>
+      </ul>
+    </div>
+    <div id="player_black_attack" class="player_selector">
+      <ul>
+        <li>Hans</li>
+        <li class="selected">Alexander D.</li>
+        <li>Fabien</li>
+      </ul>
+    </div>
+
+    <div id="player_yellow_attack" class="player_selector">
+      <ul>
+        <li>Hans</li>
+        <li class="selected">Alexander D.</li>
+        <li>Fabien</li>
+      </ul>
+    </div>
+    <div id="player_yellow_defense" class="player_selector">
+      <ul>
+        <li>Hans</li>
+        <li class="selected">Alexander D.</li>
+        <li>Fabien</li>
+      </ul>
+    </div>
+  </body>
+</html>
+

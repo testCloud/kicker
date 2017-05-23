@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.player_selector {
+  position: absolute;
+  width: 362px;
+  height: 300px;
+  //border: 1px solid black;
+}
+.player_selector ul {
+  border: 1px solid #000;
+  list-style-type: none;
+  width: 300px;
+  position: relative;
+  display: block;
+  top: 80px;
+  margin: auto;
+  padding: 0;
+}
+.player_selector ul li {
+  position: relative;
+  width: 300px;
+  display: block;
+  text-align: center;
+  border: 1px solid #AAA;
+  height: 37px;
+  line-height: 37px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.player_selector ul li.selected {
+  font-size: 42px;
+  line-height: 60px;
+  border: 1px solid #000;
+  height: 60px;
+}
+#player_black_defense {
+  top: 0px;
+  left: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+}
+#player_black_attack {
+  bottom: 0px;
+  left: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+#player_yellow_attack {
+  top: 0px;
+  right: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+}
+#player_yellow_defense {
+  bottom: 0px;
+  right: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+}
+#kicker_background {
+  position: absolute;
+  top: 0px;
+  left: 363px;
+  width: 300px;
+  height: 600px;
+  background-image: url("../images/kicker.png");
+  background-position: center;
+  background-repeat: no-repeat;
+}

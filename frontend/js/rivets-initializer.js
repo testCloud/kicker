@@ -12,13 +12,16 @@ rivets.configure({
   executeFunctions: false
 })
 
-rivets.formatters.take = function(array, offset, n){
-  if (offset + n > array.length){
-    // start again from beginning of the array
-    var rest = offset + n - array.length;
-    return array.slice(offset).concat(array.slice(0, rest));
+rivets.formatters.visiblePlayers = function(playerList, playerId){
+  var selectedPlayer = playerList.find(function(e) { return e.id == playerId });
+  var indexOfSelectedPlayer = playerList.indexOf(selectedPlayer);
+  if (indexOfSelectedPlayer + selectorWindow >= playerList.length) {
+    var remainder = indexOfSelectedPlayer + selectorWindow - playerList.length;
+    return playerList.slice(indexOfSelectedPlayer - selectorWindow).concat(playerList.slice(0, remainder + 1));
+  } else if (indexOfSelectedPlayer - selectorWindow < 0) {
+    return playerList.slice(indexOfSelectedPlayer - selectorWindow).concat(playerList.slice(0, indexOfSelectedPlayer + selectorWindow + 1));
   } else {
-    return array.slice(offset, offset + n);
+    return playerList.slice(indexOfSelectedPlayer - selectorWindow, indexOfSelectedPlayer + selectorWindow + 1);
   }
 }
 
@@ -27,36 +30,37 @@ rivets.formatters.eq = function(val, arg){
 }
 
 var players = [
-  { name: 'Hans' },
-  { name: 'Alexander D.' },
-  { name: 'Fabien' },
-  { name: 'Simon' },
-  { name: 'Jan' }
+  { id: '2', name: 'Hans' },
+  { id: '7', name: 'Alexander D.' },
+  { id: 'blubb', name: 'Fabien' },
+  { id: 'CAT', name: 'Simon' },
+  { id: '1', name: 'Jan' },
+  { id: 'idontcare', name: 'Jiayi' }
 ];
 
+var selectorWindow = 1;
 var states = {
-  display: 3,
-  player1: {
-    offset: 0
+  teamBlack: {
+    attackPlayer: '7',
+    defensePlayer: '1'
   },
-  player2: {
-    offset: 0
-  },
-  player3: {
-    offset: 0
-  },
-  player4: {
-    offset: 0
+  teamYellow: {
+    attackPlayer: 'CAT',
+    defensePlayer: 'idontcare'
   }
-}
+};
 
 $(function() {
-  rivets.bind($('body'), { players: players, states: states });
+  rivets.bind($('body'), { players: players, states: states, selectorWindow: selectorWindow });
 });
 
-var nextPlayer = function(list){
-  var newOffset = states[list].offset + 1
-  states[list] = {
-    offset: newOffset >= players.length ? 0 : newOffset
+var nextPlayer = function(team, player){
+  var playerId = states[team][player];
+  var selectedPlayer = players.find(function(e) { return e.id == playerId });
+  var indexOfSelectedPlayer = players.indexOf(selectedPlayer);
+  if (indexOfSelectedPlayer + 1 == players.length) {
+    states[team][player] = players[0].id;
+  } else {
+    states[team][player] = players[indexOfSelectedPlayer + 1].id;
   }
 }

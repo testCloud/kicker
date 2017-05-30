@@ -11,14 +11,14 @@
 
     <div id="player_black_defense" class="player_selector">
       <ul>
-        <li rv-each-player='players | take states.player1.offset states.display' rv-class-selected='%player% | eq 1'>
+        <li rv-each-player='players | visiblePlayers states.teamBlack.defensePlayer' rv-class-selected='%player% | eq selectorWindow'>
           { player.name }
         </li>
       </ul>
     </div>
     <div id="player_black_attack" class="player_selector">
       <ul>
-        <li rv-each-player='players | take states.player2.offset states.display' rv-class-selected='%player% | eq 1'>
+        <li rv-each-player='players | visiblePlayers states.teamBlack.attackPlayer' rv-class-selected='%player% | eq selectorWindow'>
           { player.name }
         </li>
       </ul>
@@ -26,14 +26,14 @@
 
     <div id="player_yellow_attack" class="player_selector">
       <ul>
-        <li rv-each-player='players | take states.player3.offset states.display' rv-class-selected='%player% | eq 1'>
+        <li rv-each-player='players | visiblePlayers states.teamYellow.attackPlayer' rv-class-selected='%player% | eq selectorWindow'>
           { player.name }
         </li>
       </ul>
     </div>
     <div id="player_yellow_defense" class="player_selector">
       <ul>
-        <li rv-each-player='players | take states.player4.offset states.display' rv-class-selected='%player% | eq 1'>
+        <li rv-each-player='players | visiblePlayers states.teamYellow.defensePlayer' rv-class-selected='%player% | eq selectorWindow'>
           { player.name }
         </li>
       </ul>

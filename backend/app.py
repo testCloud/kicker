@@ -23,7 +23,12 @@ if __name__ == '__main__':
     while True:
         if led_controller.status == 'on' and time.time() > stop_after:
             led_controller.led_off()
-        if GPIO.input(Settings.IR_BLACK) == 1 or GPIO.input(Settings.IR_YELLOW) == 1:
+        if GPIO.input(Settings.IR_BLACK) == 1:
+            event_publisher.publish('goal', { 'team': 'black' })
             led_controller.led_on()
             stop_after = time.time() + timer_in_seconds
-        time.sleep(.001)
+        if GPIO.input(Settings.IR_YELLOW) == 1:
+            event_publisher.publish('goal', { 'team': 'yellow' })
+            led_controller.led_on()
+            stop_after = time.time() + timer_in_seconds
+        time.sleep(.01)

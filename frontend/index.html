@@ -11,35 +11,40 @@
 
     <div id="player_black_defense" class="player_selector">
       <ul>
-        <li>Hans</li>
-        <li class="selected">Alexander D.</li>
-        <li>Fabien</li>
+        <li rv-each-player='players | take states.player1.offset states.display' rv-class-selected='%player% | eq 1'>
+          { player.name }
+        </li>
       </ul>
     </div>
     <div id="player_black_attack" class="player_selector">
       <ul>
-        <li>Hans</li>
-        <li class="selected">Alexander D.</li>
-        <li>Fabien</li>
+        <li rv-each-player='players | take states.player2.offset states.display' rv-class-selected='%player% | eq 1'>
+          { player.name }
+        </li>
       </ul>
     </div>
 
     <div id="player_yellow_attack" class="player_selector">
       <ul>
-        <li>Hans</li>
-        <li class="selected">Alexander D.</li>
-        <li>Fabien</li>
+        <li rv-each-player='players | take states.player3.offset states.display' rv-class-selected='%player% | eq 1'>
+          { player.name }
+        </li>
       </ul>
     </div>
     <div id="player_yellow_defense" class="player_selector">
       <ul>
-        <li>Hans</li>
-        <li class="selected">Alexander D.</li>
-        <li>Fabien</li>
+        <li rv-each-player='players | take states.player4.offset states.display' rv-class-selected='%player% | eq 1'>
+          { player.name }
+        </li>
       </ul>
     </div>
     <script src="js/rivets.bundled.min.js"></script>
     <script src="js/stomp.min.js"></script>
     <script src="js/script.js"></script>
   </body>
+  <script src= 'https://code.jquery.com/jquery-3.2.1.min.js'></script>
+  <script src= 'js/rivets.bundled.min.js'></script>
+  <script src= 'js/rivets-initializer.js'></script>
+  <script>
+  </script>
 </html>

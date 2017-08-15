@@ -5,46 +5,58 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <div id="kicker_background">
-      
+    <div id="booting" rv-if="states.kickerStatus | eq 'booting'">
+      <div id="boot_message">booting kicker ...</div>
     </div>
 
-    <div id="player_black_defense" class="player_selector">
-      <ul>
-        <li rv-each-player='players | visiblePlayers states.teamBlack.defensePlayer' rv-class-selected='%player% | eq selectorWindow'>
-          { player.name }
-        </li>
-      </ul>
-    </div>
-    <div id="player_black_attack" class="player_selector">
-      <ul>
-        <li rv-each-player='players | visiblePlayers states.teamBlack.attackPlayer' rv-class-selected='%player% | eq selectorWindow'>
-          { player.name }
-        </li>
-      </ul>
+    <div id="player_selection" rv-if="states.kickerStatus | eq 'playerSelection'">
+      <div id="kicker_background">
+       
+      </div>
+
+      <div id="player_black_defense" class="player_selector">
+        <ul>
+          <li rv-each-player='players | visiblePlayers states.teamBlack.defensePlayer' rv-class-selected='%player% | eq selectorWindow'>
+            { player.name }
+          </li>
+        </ul>
+      </div>
+      <div id="player_black_attack" class="player_selector">
+        <ul>
+          <li rv-each-player='players | visiblePlayers states.teamBlack.attackPlayer' rv-class-selected='%player% | eq selectorWindow'>
+            { player.name }
+          </li>
+        </ul>
+      </div>
+
+      <div id="player_yellow_attack" class="player_selector">
+        <ul>
+          <li rv-each-player='players | visiblePlayers states.teamYellow.attackPlayer' rv-class-selected='%player% | eq selectorWindow'>
+            { player.name }
+          </li>
+        </ul>
+      </div>
+      <div id="player_yellow_defense" class="player_selector">
+        <ul>
+          <li rv-each-player='players | visiblePlayers states.teamYellow.defensePlayer' rv-class-selected='%player% | eq selectorWindow'>
+            { player.name }
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div id="player_yellow_attack" class="player_selector">
-      <ul>
-        <li rv-each-player='players | visiblePlayers states.teamYellow.attackPlayer' rv-class-selected='%player% | eq selectorWindow'>
-          { player.name }
-        </li>
-      </ul>
+    <div id="playing" rv-if="kicker.kickerStatus == 'playing'">
+      PLAYING
     </div>
-    <div id="player_yellow_defense" class="player_selector">
-      <ul>
-        <li rv-each-player='players | visiblePlayers states.teamYellow.defensePlayer' rv-class-selected='%player% | eq selectorWindow'>
-          { player.name }
-        </li>
-      </ul>
+
+    <div id="after_game" rv-if="kicker.kickerStatus == 'afterGame'">
+      AFTERGAME
     </div>
-    <script src="js/rivets.bundled.min.js"></script>
+
+    <script src='//code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src='js/rivets.bundled.min.js'></script>
+    <script src='js/rivets-initializer.js'></script>
     <script src="js/stomp.min.js"></script>
     <script src="js/script.js"></script>
   </body>
-  <script src= 'https://code.jquery.com/jquery-3.2.1.min.js'></script>
-  <script src= 'js/rivets.bundled.min.js'></script>
-  <script src= 'js/rivets-initializer.js'></script>
-  <script>
-  </script>
 </html>

@@ -50,8 +50,22 @@ var states = {
   }
 };
 
+/*var state = {
+  kicker: {
+    kickerStatus: 'booting'
+  }
+};*/
+
+var bstate = {
+  players: players,
+  states: { kickerStatus: 'booting' },
+  selectorWindow: selectorWindow
+}
+
 $(function() {
-  rivets.bind($('body'), { players: players, states: states, selectorWindow: selectorWindow });
+  //rivets.bind($('body'), { players: players, states: states, selectorWindow: selectorWindow });
+  //rivets.bind($('body'), state);
+  rivets.bind($('body'), bstate);
 });
 
 var nextPlayer = function(team, player){
@@ -64,3 +78,4 @@ var nextPlayer = function(team, player){
     states[team][player] = players[indexOfSelectedPlayer + 1].id;
   }
 }
+

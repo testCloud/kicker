@@ -1,0 +1,17 @@
+{
+  kickerStatus: [playerSelection, playing, afterGame],
+  startedAt: datetime,
+  gameMode: 'Competition',
+  teamBlack: {
+    attackPlayer: '7',
+    defensePlayer: '1',
+    score: 3,
+    roundsWon: 2
+  },
+  teamYellow: {
+    attackPlayer: 'CAT',
+    defensePlayer: 'idontcare',
+    score: 5,
+    roundsWon: 0
+  }
+}

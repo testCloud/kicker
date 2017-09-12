@@ -1,0 +1,3 @@
+pigpio
+requests_futures
+RPi.GPIO

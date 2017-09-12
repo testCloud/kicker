@@ -1,2 +1,3 @@
 log
 **/*.swp
+backend/__pycache__

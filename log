@@ -1,1 +1,0 @@
-2017-05-16 23:24:33,282 - event_publisher - INFO - Publish event: heartbeat - {'service_name': 'kicker', 'hostname': 'kicker'}

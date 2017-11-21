@@ -23,4 +23,4 @@ Edit the crontab: `crontab -e`
 Install nginx
 (https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md)
 
-Update `/etc/nginx/sites-available/default` and replace `root /var/www/html;` by `root /home/pi/kicker/frontend`
+Update `/etc/nginx/sites-available/default` and replace `root /var/www/html;` by `root /home/pi/kicker/frontend;`

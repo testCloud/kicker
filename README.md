@@ -16,3 +16,11 @@ Install pip dependencies
 Edit the crontab: `crontab -e`
 * add `SHELL=/bin/bash` at the top
 * add `@reboot bash /home/pi/kicker/backend/start.sh` at the bottom
+
+
+## Setup web server
+
+Install nginx
+(https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md)
+
+Update `/etc/nginx/sites-available/default` and replace `root /var/www/html;` by `root /home/pi/kicker/frontend`

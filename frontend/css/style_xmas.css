@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  width:100%;
+}
+
+#playing {
+  width:100%;
+}
+
+#playing .score {
+  position:absolute;
+  width: 300px;
+  height: 300px;
+  border:1px solid #000;
+  top: 50%;
+  margin-top:-150px;
+  font-size:200px;
+  text-align:center;
+  line-height:300px;
+}
+#score_black {
+  left: 50px;
+}
+#score_yellow {
+  right:50px;
+}
+
+#score_resetter {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:150px;
+  margin-left:-75px;
+  height:40px;
+  margin-top:-20px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width:100%;
+}

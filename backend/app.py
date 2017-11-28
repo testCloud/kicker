@@ -20,15 +20,24 @@ if __name__ == '__main__':
 
     timer_in_seconds = 1200
     stop_after = time.time()
+    ready_for_new_goal = True
     while True:
         if led_controller.status == 'on' and time.time() > stop_after:
             led_controller.led_off()
-        if GPIO.input(Settings.IR_BLACK) == 1:
-            event_publisher.publish('goal', { 'team': 'black' })
-            led_controller.led_on()
-            stop_after = time.time() + timer_in_seconds
-        if GPIO.input(Settings.IR_YELLOW) == 1:
-            event_publisher.publish('goal', { 'team': 'yellow' })
-            led_controller.led_on()
-            stop_after = time.time() + timer_in_seconds
+
+        if ready_for_new_goal:
+            if GPIO.input(Settings.IR_BLACK) == 1:
+                event_publisher.publish('goal', { 'team': 'black' })
+                led_controller.led_on()
+                stop_after = time.time() + timer_in_seconds
+                ready_for_new_goal = False
+
+            if GPIO.input(Settings.IR_YELLOW) == 1:
+                event_publisher.publish('goal', { 'team': 'yellow' })
+                led_controller.led_on()
+                stop_after = time.time() + timer_in_seconds
+                ready_for_new_goal = False
+
+        if time.time() - stop_after + timer_in_seconds > 1:
+            ready_for_new_goal = True
         time.sleep(.01)

@@ -12,10 +12,11 @@ class Broadcaster(WebSocket):
     def handleConnected(self):
        print(self.address, 'connected')
        clients.append(self)
+       self.sendMessage('{ "kickerStatus": "playing", "score_black": 0, "score_yellow": 0 }')
 
     def handleClose(self):
        clients.remove(self)
        print(self.address, 'disconnected')
 
-server = SimpleWebSocketServer('', 8000, Broadcaster)
+server = SimpleWebSocketServer('', 15674, Broadcaster)
 server.serveforever()

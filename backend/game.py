@@ -4,13 +4,22 @@ class Game:
         self.reset()
 
     def goal_for_black(self):
-        self.event_publisher.publish('goal', { 'team': 'black' })
         self.score_black += 1
+        self.event_publisher.publish({ 'black': self.score_black}, { 'yellow': self.score_yellow })
+        if self.score_black == 6
+            self.event_publisher.publish({ 'message': 'BLACK TEAM WINS', 'black': self.score_black, 'yellow': self.score_yellow })
+            time.sleep(15)
+            self.start()
 
     def goal_for_yellow(self):
-        self.event_publisher.publish('goal', { 'team': 'yellow' })
         self.score_yellow += 1
+        self.event_publisher.publish({ 'black': self.score_black, 'yellow': self.score_yellow })
+        if self.score_yellow == 6
+            self.event_publisher.publish({ 'message': 'YELLOW TEAM WINS', 'black': self.score_black, 'yellow': self.score_yellow })
+            time.sleep(15)
+            self.start()
 
-    def reset(self):
+    def start(self):
         self.score_black = 0
         self.score_yellow = 0
+        self.event_publisher.publish({ 'message': '', 'black': self.score_black, 'yellow': self.score_yellow })

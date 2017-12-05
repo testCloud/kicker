@@ -33,10 +33,10 @@ if __name__ == '__main__':
                 ready_for_new_goal = False
 
             if GPIO.input(Settings.IR_YELLOW) == 1:
-                event_publisher.publish('goal', { 'team': 'yellow' })
-                led_controller.led_on()
-                stop_after = time.time() + timer_in_seconds
-                ready_for_new_goal = False
+                # event_publisher.publish('goal', { 'team': 'yellow' })
+                # led_controller.led_on()
+                # stop_after = time.time() + timer_in_seconds
+                # ready_for_new_goal = False
 
         if time.time() - stop_after + timer_in_seconds > 1:
             ready_for_new_goal = True

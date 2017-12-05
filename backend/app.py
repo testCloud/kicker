@@ -27,13 +27,11 @@ if __name__ == '__main__':
 
         if ready_for_new_goal:
             if GPIO.input(Settings.IR_BLACK) == 1:
-                event_publisher.publish('goal', { 'team': 'black' })
                 led_controller.led_on()
                 stop_after = time.time() + timer_in_seconds
                 ready_for_new_goal = False
 
             if GPIO.input(Settings.IR_YELLOW) == 1:
-                event_publisher.publish('goal', { 'team': 'yellow' })
                 led_controller.led_on()
                 stop_after = time.time() + timer_in_seconds
                 ready_for_new_goal = False

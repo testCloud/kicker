@@ -5,7 +5,7 @@ class Game:
 
     def goal_for_black(self):
         self.score_black += 1
-        self.event_publisher.publish({ 'black': self.score_black}, { 'yellow': self.score_yellow })
+        self.event_publisher.publish({ 'black': self.score_black, 'yellow': self.score_yellow })
         if self.score_black == 6
             self.event_publisher.publish({ 'message': 'BLACK TEAM WINS', 'black': self.score_black, 'yellow': self.score_yellow })
             time.sleep(15)

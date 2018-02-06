@@ -6,22 +6,21 @@
   </head>
   <body>
 
-    <div id="booting" rv-if="states.kickerStatus | eq 'booting'">
-      <div id="boot_message">booting kicker ...</div>
-    </div>
-
-    <div id="playing" rv-if="states.kickerStatus | eq 'playing'">
+    <div id="playing">
+      <div id="message">{ states.message }</div>
       <div id="score_black" class="score">
         { states.score_black }
       </div>
       <div id="score_yellow" class="score">
         { states.score_yellow }
       </div>
+      <!--
       <div id="score_resetter">
         <button class="btn" id="score_resetter_button">
           RESET
         </button>
       </div>
+      -->
     </div>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>

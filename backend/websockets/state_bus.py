@@ -1,7 +1,7 @@
 from SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
 
 clients = []
-class Broadcaster(WebSocket):
+class StateBus(WebSocket):
 
     def handleMessage(self):
        print('message:', self.data)
@@ -18,5 +18,5 @@ class Broadcaster(WebSocket):
        clients.remove(self)
        print(self.address, 'disconnected')
 
-server = SimpleWebSocketServer('', 15674, Broadcaster)
+server = SimpleWebSocketServer('', 15674, StateBus)
 server.serveforever()

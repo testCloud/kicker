@@ -4,7 +4,7 @@ from RPi import GPIO
 from socket_publisher import SocketPublisher
 
 if __name__ == '__main__':
-    socket_publisher = SocketPublisher()
+    state_bus_publisher = SocketPublisher(15674)
 
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
@@ -21,12 +21,12 @@ if __name__ == '__main__':
             if GPIO.input(Settings.IR_BLACK) == 1:
                 stop_after = time.time() + timer_in_seconds
                 ready_for_new_goal = False
-                socket_publisher.publish({ 'message': 'goal', 'payload': { 'team': 'black' } })
+                state_bus_publisher.publish({ 'message': 'goal', 'payload': { 'team': 'black' } })
 
             if GPIO.input(Settings.IR_YELLOW) == 1 :
                 stop_after = time.time() + timer_in_seconds
                 ready_for_new_goal = False
-                socket_publisher.publish({ 'message': 'goal', 'payload': { 'team': 'yellow' } })
+                state_bus_publisher.publish({ 'message': 'goal', 'payload': { 'team': 'yellow' } })
 
         if time.time() - stop_after + timer_in_seconds > 1:
             ready_for_new_goal = True
